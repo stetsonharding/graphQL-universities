@@ -4,4 +4,10 @@ import { Field, InputType } from '@nestjs/graphql';
 export class CreateUniversityInput {
   @Field()
   name: string;
+
+  @Field()
+  city: string;
+
+  @Field()
+  state: string;
 }

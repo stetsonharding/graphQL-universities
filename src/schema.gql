@@ -1,0 +1,23 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type University {
+  id: String!
+  name: String!
+}
+
+type Query {
+  university(id: String!): University!
+  universities(id: [String!]!): [University!]!
+}
+
+type Mutation {
+  createUniversity(createUniversityData: CreateUniversityInput!): University!
+}
+
+input CreateUniversityInput {
+  name: String!
+  city: String!
+  state: String!
+}

@@ -4,6 +4,9 @@ import { University } from './interfaces/university';
 
 import * as fs from 'fs';
 import { CreateUniversityInput } from './dto/args/input/create-university.input';
+import { UpdateUniversityInput } from './dto/args/input/update-university.input';
+import { GetUniversityArgs } from './dto/args/get-university.args';
+import { GetUniversitiesArgs } from './dto/args/get-universities.args';
 
 // Injectable allows us to import providers into this service
 @Injectable()
@@ -16,24 +19,65 @@ export class UniversitiesService {
   //   ),
   // );
 
-  private universities: University[] = [];
+  private universities: University[] = [
+    {
+      id: '1',
+      name: 'Alabama A & M University',
+      City: {
+        id: '1',
+        name: 'Huntsville',
+        State: {
+          id: '1',
+          name: 'Alabama',
+        },
+      },
+    },
+  ];
 
-  public getUniversities(): University {}
-
-  public getUniversity(): University[] {}
-
- 
-  public createUniversity(createUniversityData: CreateUniversityInput): University {
-      const indexID = this.universities.length + 1
-      
-    const univeristy: University ={
-      id: indexID;
-    }
-
-    this.universities.push(univeristy)
-
-    return univeristy
+  public getUniversities(
+    getUniversitiesArgs: GetUniversitiesArgs,
+  ): University[] {
+    return getUniversitiesArgs.id.map((id) => this.getUniversity({ id }));
   }
 
-  public updateUniversity(): University {}
+  public getUniversity(getUniversityArgs: GetUniversityArgs): University {
+    return this.universities.find(
+      (university) => university.id === getUniversityArgs.id,
+    );
+  }
+
+  public createUniversity(
+    createUniversityData: CreateUniversityInput,
+  ): University {
+    const indexID = `${this.universities.length + 1}`;
+
+    const university = {
+      id: indexID,
+      name: createUniversityData.name,
+      City: {
+        id: indexID,
+        name: createUniversityData.city,
+        State: {
+          id: '1',
+          name: createUniversityData.state,
+        },
+      },
+    };
+
+    this.universities.push(university);
+
+    return university;
+  }
+
+  // public updateUniversity(
+  //   updateUniversityData: UpdateUniversityInput,
+  // ): University {
+  //   const university = this.universities.find(
+  //     (univeristy) => univeristy.id === updateUniversityData.id,
+  //   );
+
+  //   Object.assign(university, updateUniversityData);
+
+  //   return university;
+  // }
 }

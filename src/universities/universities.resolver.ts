@@ -16,27 +16,27 @@ export class UniversitiesResolver {
 
   @Query(() => University, { name: 'university' })
   getUniversity(@Args() getUniversityArgs: GetUniversityArgs): University {
-    return this.universitiesService.getUniversity();
+    return this.universitiesService.getUniversity(getUniversityArgs);
   }
 
   @Query(() => [University], { name: 'universities' })
   getUniversities(
     @Args() getUniversitiesArgs: GetUniversitiesArgs,
   ): University[] {
-    return this.universitiesService.getUniversities();
+    return this.universitiesService.getUniversities(getUniversitiesArgs);
   }
 
   @Mutation(() => University)
-  createUser(
+  createUniversity(
     @Args('createUniversityData') createUniversityData: CreateUniversityInput,
   ): University {
-    return this.universitiesService.createUniversity();
+    return this.universitiesService.createUniversity(createUniversityData);
   }
 
-  @Mutation(() => University)
-  updateUniversity(
-    @Args('updateUniversityInput') updateUniversityData: UpdateUniversityInput,
-  ): University {
-    return this.universitiesService.updateUniversity();
-  }
+  // @Mutation(() => University)
+  // updateUniversity(
+  //   @Args('updateUniversityInput') updateUniversityData: UpdateUniversityInput,
+  // ): University {
+  //   return this.universitiesService.updateUniversity(updateUniversityData);
+  // }
 }
