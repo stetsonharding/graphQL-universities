@@ -56,10 +56,10 @@ export class UniversitiesService {
       name: createUniversityData.name,
       City: {
         id: indexID,
-        name: createUniversityData.city,
+        name: createUniversityData.City,
         State: {
           id: '1',
-          name: createUniversityData.state,
+          name: createUniversityData.State,
         },
       },
     };
@@ -69,15 +69,23 @@ export class UniversitiesService {
     return university;
   }
 
-  // public updateUniversity(
-  //   updateUniversityData: UpdateUniversityInput,
-  // ): University {
-  //   const university = this.universities.find(
-  //     (univeristy) => univeristy.id === updateUniversityData.id,
-  //   );
+  public updateUniversity(
+    updateUniversityData: UpdateUniversityInput,
+  ): University {
+    //   const university = this.universities.find(
+    //     (univeristy) => univeristy.id === updateUniversityData.id,
+    //   );
 
-  //   Object.assign(university, updateUniversityData);
+    //   Object.assign(university, updateUniversityData);
 
-  //   return university;
-  // }
+    //   return university;
+    // }
+    const updated = this.universities.find(
+      (university) => university.id === updateUniversityData.id,
+    );
+    updated.name = updateUniversityData.name;
+    updated.City.name = updateUniversityData.City;
+
+    return updated;
+  }
 }

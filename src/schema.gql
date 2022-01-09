@@ -2,9 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type State {
+  id: String!
+  name: String!
+}
+
+type City {
+  id: String!
+  name: String!
+  State: State!
+}
+
 type University {
   id: String!
   name: String!
+  City: City!
 }
 
 type Query {
@@ -14,10 +26,18 @@ type Query {
 
 type Mutation {
   createUniversity(createUniversityData: CreateUniversityInput!): University!
+  updateUniversity(updateUniversityData: UpdateUniversityInput!): University!
 }
 
 input CreateUniversityInput {
   name: String!
-  city: String!
-  state: String!
+  City: String!
+  State: String!
+}
+
+input UpdateUniversityInput {
+  id: String!
+  name: String!
+  City: String!
+  State: String!
 }

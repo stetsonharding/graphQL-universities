@@ -33,10 +33,10 @@ export class UniversitiesResolver {
     return this.universitiesService.createUniversity(createUniversityData);
   }
 
-  // @Mutation(() => University)
-  // updateUniversity(
-  //   @Args('updateUniversityInput') updateUniversityData: UpdateUniversityInput,
-  // ): University {
-  //   return this.universitiesService.updateUniversity(updateUniversityData);
-  // }
+  @Mutation(() => University)
+  updateUniversity(
+    @Args('updateUniversityData') updateUniversityData: UpdateUniversityInput,
+  ): University {
+    return this.universitiesService.updateUniversity(updateUniversityData);
+  }
 }
