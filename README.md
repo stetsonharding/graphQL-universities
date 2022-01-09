@@ -22,9 +22,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
@@ -45,29 +43,82 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+## GraphQl Playground Queries 
 
-# test coverage
-$ npm run test:cov
-```
+http://localhost:3000/graphql
 
-## Support
+Get a University:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+query {
+  university(id: 1){
+    id
+    name
+    city{
+      id
+      name
+      state{
+        id 
+        name
+      }
+    }
+  }
+}
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Get a list Universities:
 
-## License
+query{
+  universities(id:[1,2,3]){
+    id
+    name
+    city{
+      id
+      name
+      state{
+        id
+        name
+      }
+    }
+  }
+}
 
-Nest is [MIT licensed](LICENSE).
+
+Create a University:
+
+mutation{
+  createUniversity(createUniversityData:{name:"University of Washington", city:"Seattle", state:"Washington"}){
+    id
+    name
+  	city{
+      id
+      name
+      state{
+        id
+        name
+      }
+    }
+  }
+}
+
+
+Update a University:
+
+mutation {
+  updateUniversity(updateUniversityData: {id:1, name: "University of Idaho", city: "Moscow", state: "Idaho"}){
+  id
+    name
+    city{
+      id
+      name
+      state{
+        id
+        name
+      }
+    }
+  }
+}
+
+
+
