@@ -3,12 +3,12 @@
 # ------------------------------------------------------
 
 type State {
-  id: String!
+  id: Int!
   name: String!
 }
 
 type City {
-  id: String!
+  id: Int!
   name: String!
   State: State!
 }
@@ -20,8 +20,8 @@ type University {
 }
 
 type Query {
-  university(id: String!): University!
-  universities(id: [String!]!): [University!]!
+  university(id: Int!): University!
+  universities(id: [Int!]!): [University!]!
 }
 
 type Mutation {
@@ -36,7 +36,7 @@ input CreateUniversityInput {
 }
 
 input UpdateUniversityInput {
-  id: String!
+  id: Int!
   name: String!
   City: String!
   State: String!

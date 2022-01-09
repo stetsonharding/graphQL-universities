@@ -1,4 +1,4 @@
-import { Field, Int, ObjectType, ID } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 import { City } from '../interfaces/city';
 

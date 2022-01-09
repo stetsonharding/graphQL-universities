@@ -58,7 +58,7 @@ export class UniversitiesService {
         id: indexID,
         name: createUniversityData.City,
         State: {
-          id: '1',
+          id: 1,
           name: createUniversityData.State,
         },
       },
