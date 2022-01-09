@@ -72,14 +72,6 @@ export class UniversitiesService {
   public updateUniversity(
     updateUniversityData: UpdateUniversityInput,
   ): University {
-    //   const university = this.universities.find(
-    //     (univeristy) => univeristy.id === updateUniversityData.id,
-    //   );
-
-    //   Object.assign(university, updateUniversityData);
-
-    //   return university;
-    // }
     const updated = this.universities.find(
       (university) => university.id === updateUniversityData.id,
     );
