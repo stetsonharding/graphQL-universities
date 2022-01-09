@@ -54,12 +54,12 @@ export class UniversitiesService {
     const university = {
       id: indexID,
       name: createUniversityData.name,
-      City: {
+      city: {
         id: indexID,
-        name: createUniversityData.City,
-        State: {
+        name: createUniversityData.city,
+        state: {
           id: 1,
-          name: createUniversityData.State,
+          name: createUniversityData.state,
         },
       },
     };
@@ -76,7 +76,8 @@ export class UniversitiesService {
       (university) => university.id === updateUniversityData.id,
     );
     updated.name = updateUniversityData.name;
-    updated.City.name = updateUniversityData.City;
+    updated.city.name = updateUniversityData.city;
+    updated.city.state.name = updateUniversityData.state;
 
     return updated;
   }

@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
-import { City } from '../interfaces/city';
+import { city } from '../interfaces/city';
 
 @ObjectType()
 export class University {
@@ -10,6 +10,6 @@ export class University {
   @Field()
   name: string;
 
-  @Field(() => City)
-  City: City;
+  @Field(() => city)
+  city: city;
 }

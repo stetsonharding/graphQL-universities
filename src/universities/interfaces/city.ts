@@ -1,15 +1,15 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
-import { State } from '../interfaces/state';
+import { state } from '../interfaces/state';
 
 @ObjectType()
-export class City {
+export class city {
   @Field(() => Int)
   id: number;
 
   @Field()
   name: string;
 
-  @Field(() => State)
-  State: State;
+  @Field(() => state)
+  state: state;
 }
