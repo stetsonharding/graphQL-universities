@@ -4,8 +4,8 @@ import { City } from '../interfaces/city';
 
 @ObjectType()
 export class University {
-  @Field()
-  id: string;
+  @Field(() => Int)
+  id: number;
 
   @Field()
   name: string;

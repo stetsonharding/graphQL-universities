@@ -14,7 +14,7 @@ type City {
 }
 
 type University {
-  id: String!
+  id: Int!
   name: String!
   City: City!
 }
